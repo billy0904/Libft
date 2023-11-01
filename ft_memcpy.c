@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gablee <gablee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 17:40:06 by gablee            #+#    #+#             */
-/*   Updated: 2023/10/06 17:41:42 by gablee           ###   ########.fr       */
+/*   Created: 2023/11/01 14:26:18 by gablee            #+#    #+#             */
+/*   Updated: 2023/11/01 14:27:08 by gablee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+void	*ft_memcpy(void *dest, const void *source, size_t num)
 {
-	int	i;
+	unsigned char	*d;
+	unsigned char	*s;
+	int				i;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	d = dest;
+	s = source;
+	if (d < s || d >= (s + num))
+	{
+		i = 0;
+		while (i < num)
+		{
+			d[i] = s[i];
+			i++;
+		}
+	}
+	else
+	{
+
+	}
+	return (dest);
 }

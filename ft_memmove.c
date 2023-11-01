@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gablee <gablee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 17:40:06 by gablee            #+#    #+#             */
-/*   Updated: 2023/10/06 17:41:42 by gablee           ###   ########.fr       */
+/*   Created: 2023/11/01 14:27:22 by gablee            #+#    #+#             */
+/*   Updated: 2023/11/01 14:27:44 by gablee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+void	*memmove(void *dst, const void * src, size_t len)
 {
-	int	i;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
 }
