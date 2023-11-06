@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-size_t ft_strlcpy(char *dst, char *src, size_t size)
+size_t	ft_strlcpy(char *dst, char *src, size_t size)
 {
-	unsigned char *d;
-	const unsigned char *s;
-	size_t len;
+	unsigned char		*d;
+	const unsigned char	*s;
+	size_t				len;
 
 	d = (unsigned char *)dst;
 	s = (const unsigned char *)src;

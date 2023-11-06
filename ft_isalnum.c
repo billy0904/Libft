@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int ft_isalnum(int c)
+int	ft_isalnum(int c)
 {
 	if (c >= 101 && c <= 132)
 		return (1);

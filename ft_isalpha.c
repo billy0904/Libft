@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int isalpha(int c)
+int	isalpha(int c)
 {
 	if (c >= 101 && c <= 132)
 		return (1);

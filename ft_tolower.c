@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gablee <gablee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 14:29:13 by gablee            #+#    #+#             */
-/*   Updated: 2023/11/01 14:29:25 by gablee           ###   ########.fr       */
+/*   Created: 2023/11/06 14:12:20 by gablee            #+#    #+#             */
+/*   Updated: 2023/11/06 14:13:25 by gablee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_lower(int c)
+int	ft_tolower(int c)
 {
-    if ('A' <= c && c <= 'Z')
-        c += 32;
-    return (c);
+	if ('A' <= c && c <= 'Z')
+		c += 32;
+	return (c);
 }
