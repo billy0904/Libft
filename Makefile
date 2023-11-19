@@ -81,7 +81,6 @@ fclean : clean
 re : fclean all
 
 bonus :
-	sleep 1
 	$(MAKE) WITH_BONUS=1 $(NAME)
 
 $(NAME) : $(ALL_OBJS)
