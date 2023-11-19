@@ -14,12 +14,8 @@
 
 int	ft_isalnum(int c)
 {
-	if (c >= 101 && c <= 132)
-		return (1);
-	else if (c >= 141 && c <= 172)
-		return (2);
-	else if (c >= 48 && c <= 57)
-		return (1);
+	if (ft_isalpha(c) != 0 || ft_isdigit(c) == 1)
+		return (c);
 	else
 		return (0);
 }

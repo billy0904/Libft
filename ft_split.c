@@ -12,90 +12,80 @@
 
 #include "libft.h"
 
-static int	checksep(char c, char *charset)
+static int	cnt(const char *s, char c)
 {
 	int	i;
+	int	cnt;
 
 	i = 0;
-	while (charset[i])
+	cnt = 0;
+	while (s[i])
 	{
-		if (charset[i] == c)
-			return (1);
+		if (s[i] != c && s[i + 1] == c)
+			cnt++;
 		i++;
 	}
-	return (0);
+	if (s[i - 1] != c)
+		cnt += 1;
+	return (cnt);
 }
 
-static int	cnt(char *str, char *charset)
-{
-	int	i;
-	int	c;
-
-	i = 0;
-	c = 1;
-	while (str[i])
-	{
-		if (checksep(str[i], charset) && !(checksep(str[i + 1], charset)))
-			c++;
-		i++;
-	}
-	return (c);
-}
-
-static int	slen(char *str, char *charset)
+static int	slen(const char *s, char c)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (s[i])
 	{
-		if (checksep(str[i], charset))
+		if (s[i] == c)
 			return (i);
 		i++;
 	}
 	return (i);
 }
 
-static char	*newarr(char *str, char *charset)
+static char	*newarr(const char *s, char c)
 {
 	int		i;
 	int		len;
 	char	*new;
 
-	len = slen(str, charset);
+	len = slen(s, c);
 	new = (char *)malloc(sizeof(char) * (len + 1));
-	if (!(new))
+	if (!new)
 		return (0);
 	i = 0;
 	while (i < len)
 	{
-		new[i] = str[i];
+		new[i] = s[i];
 		i++;
 	}
 	new[i] = '\0';
 	return (new);
 }
 
-char	**ft_split(char *str, char *charset)
+char	**ft_split(const char *s, char c)
 {
 	char	**arr;
 	int		i;
 	int		size;
 
-	size = cnt(str, charset);
+	size = cnt(s, c);
 	arr = (char **)malloc(sizeof(char *) * (size + 1));
+	if (!arr)
+		return (0);
 	i = 0;
-	while (*str != '\0')
+	while (*s != '\0')
 	{
-		while (*str != '\0' && checksep(*str, charset))
-			str++;
-		if (*str != '\0')
+		while (*s != '\0' && *s == c)
+			s++;
+		if (*s != '\0')
 		{
-			arr[i] = newarr(str, charset);
+			arr[i] = newarr(s, c);
 			i++;
 		}
-		while (*str != '\0' && !(checksep(*str, charset)))
-			str++;
+		while (*s != '\0' && *s != c)
+			s++;
 	}
 	arr[i] = 0;
 	return (arr);

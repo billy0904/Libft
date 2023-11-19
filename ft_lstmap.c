@@ -20,12 +20,14 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 	if (!lst)
 		return (NULL);
+	if (!f || !del)
+		return (NULL);
 	result = NULL;
 	while (lst)
 	{
 		tmp = (*f)(lst->content);
 		new = ft_lstnew(tmp);
-		if (!new)
+		if (!new || !tmp)
 		{
 			del(tmp);
 			ft_lstclear(&result, del);

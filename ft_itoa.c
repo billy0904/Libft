@@ -20,7 +20,7 @@ static int	how_long(long long n)
 	if (n == 0)
 		return (1);
 	if (n < 0)
-		i = i + 1;
+		i += 1;
 	while (n != 0)
 	{
 		n /= 10;
@@ -41,8 +41,8 @@ char	*ft_itoa(int n)
 	len = how_long(m);
 	if (m < 0)
 	{
-		sign = sign * -1;
-		m = m * -1;
+		sign *= -1;
+		m *= -1;
 	}
 	result = (char *)malloc(len + 1);
 	if (!result)
@@ -51,7 +51,7 @@ char	*ft_itoa(int n)
 	while (len >= 0)
 	{
 		result[len--] = m % 10 + '0';
-		m /= m / 10;
+		m /= 10;
 	}
 	if (sign == -1)
 		result[0] = '-';
