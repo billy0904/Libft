@@ -12,18 +12,18 @@
 
 #include "libft.h"
 
-static int	how_long(long long n)
+static int	how_long(long long m)
 {
 	int	i;
 
 	i = 0;
-	if (n == 0)
+	if (m == 0)
 		return (1);
-	if (n < 0)
+	if (m < 0)
 		i += 1;
-	while (n != 0)
+	while (m != 0)
 	{
-		n /= 10;
+		m /= 10;
 		i++;
 	}
 	return (i);
@@ -31,22 +31,22 @@ static int	how_long(long long n)
 
 char	*ft_itoa(int n)
 {
-	char		*result;
 	long long	m;
 	int			sign;
 	int			len;
+	char		*result;
 
 	m = (long long)n;
 	sign = 1;
 	len = how_long(m);
-	if (m < 0)
-	{
-		sign *= -1;
-		m *= -1;
-	}
 	result = (char *)malloc(len + 1);
 	if (!result)
 		return (0);
+	if (m < 0)
+	{
+		sign = sign * -1;
+		m = m * -1;
+	}
 	result[len--] = '\0';
 	while (len >= 0)
 	{

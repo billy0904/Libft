@@ -14,17 +14,17 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		start;
-	int		end;
+	int		head;
+	int		tail;
 	char	*result;
 
 	if (!s1 || !set)
 		return (0);
-	start = 0;
-	end = ft_strlen(s1);
-	while (start != end && ft_strchr(set, s1[start]))
-		start++;
-	if (start == end)
+	head = 0;
+	tail = ft_strlen(s1);
+	while (head != tail && ft_strchr(set, s1[head]))
+		head++;
+	if (head == tail)
 	{
 		result = (char *)malloc(1);
 		if (!result)
@@ -32,11 +32,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 		*result = 0;
 		return (result);
 	}
-	while (end != 0 && ft_strchr(set, s1[end]))
-		end--;
-	result = (char *)malloc(sizeof(char) * (end - start + 2));
+	while (tail != 0 && ft_strchr(set, s1[tail]))
+		tail--;
+	result = (char *)malloc(sizeof(char) * (tail - head + 2));
 	if (!result)
 		return (0);
-	ft_strlcpy(result, &s1[start], end - start + 2);
+	ft_strlcpy(result, &s1[head], tail - head + 2);
 	return (result);
 }

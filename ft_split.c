@@ -64,6 +64,14 @@ static char	*newarr(const char *s, char c)
 	return (new);
 }
 
+static char	**ft_free(int i, char **arr)
+{
+	while (i--)
+		free(arr[i]);
+	free(arr);
+	return (0);
+}
+
 char	**ft_split(const char *s, char c)
 {
 	char	**arr;
@@ -82,6 +90,8 @@ char	**ft_split(const char *s, char c)
 		if (*s != '\0')
 		{
 			arr[i] = newarr(s, c);
+			if (arr[i] == 0)
+				return (ft_free(i, arr));
 			i++;
 		}
 		while (*s != '\0' && *s != c)

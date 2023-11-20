@@ -23,7 +23,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!new)
 		return (0);
 	i = 0;
-	while (s[i] != '\0')
+	while (s[i])
 	{
 		new[i] = f(i, s[i]);
 		i++;
