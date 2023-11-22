@@ -21,11 +21,13 @@ static int	cnt(const char *s, char c)
 	cnt = 0;
 	while (s[i])
 	{
-		if (s[i] != c && s[i + 1] == c)
+		if (s[i] != '\0' && s[i] != c && s[i + 1] == c)
 			cnt++;
 		i++;
 	}
-	if (s[i - 1] != c)
+	if (c == '\0')
+		return (cnt);
+	if (i > 0 && s[i - 1] != c)
 		cnt += 1;
 	return (cnt);
 }
